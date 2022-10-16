@@ -6,6 +6,12 @@ import cv2, os
 import numpy as np
 import time
 import glob
+import matplotlib.pylab as plt # グラフの出力用
+
+
+# グラフ出力用のlist
+xdata=[]
+ydata=[]
 
 #保存する画像数
 countI = 52
@@ -175,6 +181,7 @@ def func5():
 
         #画素数が一致している割合を計算
         degree_of_similarity = np.count_nonzero(image1 == image2) / image2.size
+        ydata.append(degree_of_similarity)
         print(name1 + " 類似度：" + str(degree_of_similarity))
 
         #類似度が0.8より大きくなった瞬間の画像を保存
@@ -185,10 +192,17 @@ def func5():
             first_img = True
         
 
-
+def write_graph():
+  xdata=np.arange(len(ydata))
+  fig, ax = plt.subplots()
+  fig.suptitle("diff.abs.sum")
+  plt.scatter(xdata, ydata, marker='.', lw=0)
+  plt.show()
 
 def main():
+    # func1()
     func5()
+    write_graph()
 
 
 if __name__ == '__main__':
