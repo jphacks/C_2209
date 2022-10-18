@@ -43,7 +43,7 @@ pic_width = aspect_ratio * pic_height
 
 #画像を１枚のパワポに出力 1段4枚ずつ
 pic_top = Cm(0.5)
-pic_left = Cm(1)
+pic_left = Cm(2.5)
 pic_left2 = pic_left + pic_width
 for i in range(len(output)):
     image = slide.shapes.add_picture(output[i], pic_left, pic_top, height=pic_height)
@@ -52,7 +52,7 @@ for i in range(len(output)):
     pic_left += Cm(7)
     if i % 4 == 3:
         pic_top += Cm(10)
-        pic_left = Cm(1)
+        pic_left = Cm(2.5)
         pic_left2 = pic_left + pic_width
         pic_top2 += Cm(11)
     elif i != len(output)-1:
