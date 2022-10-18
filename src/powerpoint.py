@@ -6,8 +6,6 @@ import pptx
 from pptx.enum.shapes import MSO_SHAPE
 from pptx.dml.color import RGBColor
 from pptx.util import Cm,Pt               # 単位指定をするクラス(センチメートル, ポイント単位)
-#from pptx.enum.text import PP_ALIGN  # 中央揃えにする用
-#from pptx import Presentation # プレゼンテーションを作成
 import os
 from PIL import Image 
 
@@ -26,7 +24,6 @@ while True:
     if not os.path.exists(f'./output/output1_{num:04d}.jpeg'):
         break
 
-#cd = os.getcwd()
 prs = pptx.Presentation()
 prs.slide_width = Inches(11.69) #A4サイズ
 prs.slide_height = Inches(8.27)
@@ -66,7 +63,7 @@ for i in range(len(output)):
 
 #画像を２枚ずつパワポに出力
 pic_height = Cm(16)
-pic_width = aspect_ratio*pic_height
+pic_width = aspect_ratio * pic_height
 slide_width = prs.slide_width
 slide_height = prs.slide_height
 
