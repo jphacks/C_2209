@@ -255,6 +255,7 @@ function addsaveImage( index, width_, height_) {
     imgElement.id = 'saveI_' + (index);
     imgElement.style.width  = width_+"px";
     imgElement.style.height = height_+"px";
+    imgElement.style.border = "0px solid";
     imgElement.hidden = true;
     imgElement.willReadFrequently = true;
 
@@ -316,6 +317,8 @@ async function addCanvasList(){
                     console.log("NN");
                 }
                 flag = false;
+            }else{
+                ctcc.clearRect(0, 0, w, h);
             }
 
             const rect = point.target.getBoundingClientRect();
@@ -343,7 +346,6 @@ async function addCanvasList(){
 
             console.log(relatestamps);
             console.log(stamp_idSave);
-
             ctcc.drawImage(ff, 0, 0, w, h); //リセット
             
             let asset_id = '#'+stamp_id_S;
